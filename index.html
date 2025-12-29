@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>My Final Words</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700;900&family=Cinzel:wght@400;600&family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Gallery overlay styles (page9) */
+        #galleryOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;z-index:9999}
+        #galleryOverlay.open{display:flex}
+        .gallery-container{position:relative;max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center}
+        .gallery-image{max-width:100%;max-height:80vh;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+        /* Remove absolute positioning from individual nav buttons and create a centered controls bar */
+        .gallery-nav{font-size:1.9rem;color:#fff;background:rgba(0,0,0,0.45);border:none;cursor:pointer;padding:10px 14px;border-radius:8px}
+        .gallery-controls{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;z-index:10002}
+        .gallery-close{position:absolute;top:12px;left:50%;transform:translateX(-50%);right:auto;background:#fff;border-radius:50%;width:36px;height:36px;border:none;cursor:pointer;font-weight:700;z-index:10003}
+        .gallery-counter{color:#fff;font-size:0.95rem}
+        .open-gallery-btn{padding:10px 14px;background:#ff6b6b;color:#fff;border:none;border-radius:6px;cursor:pointer}
+    </style>
+</head>
+<body>
+    <div class="storybook-container">
+        <!-- Animated Hearts Background -->
+        <div class="hearts-background">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+
+        <!-- Screen Overlay with Ribbon -->
+        <div id="screenOverlay" class="screen-overlay">
+            <div class="overlay-content">
+                <div class="overlay-card">
+                    <div class="card-text" id="cardText">
+                        Vanduuu...Please read this fully, not as an argument, but to understand the pain behind these words.
+                    </div>
+                    <a href="#" class="show-more-link" id="showMoreLink">Show more</a>
+                </div>
+                <div class="overlay-text">Last Words From My Heart</div>
+                <button class="ribbon-btn" id="ribbonBtn">
+                    <span class="ribbon-text">🎀 Open this 🎀</span>
+                </button>
+            </div>
+            <div class="door left-door"></div>
+            <div class="door right-door"></div>
+        </div>
+
+        <!-- Landing Page -->
+        <div class="page active" id="landing">
+            <div class="page-content">
+                <h1 class="main-title">✨ Last Words ✨</h1>
+                <div class="subtitle">Crafted with love for an extraordinary soul...</div>
+                <div class="landing-hearts">
+                    <div class="floating-heart">💖</div>
+                    <div class="floating-heart">💕</div>
+                    <div class="floating-heart">💗</div>
+                    <!-- Add a beautiful heart-shaped frame with person's photo -->
+                    <div class="main-heart-image">
+                        <div class="heart-frame">
+                            <img src="images/img1.jpg" alt="Special Person" class="person-in-heart">
+                            <div class="heart-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="begin-btn" id="beginBtn">🌟 Begin My Painful Journey 🌟</button>
+            </div>
+        </div>
+
+        <!-- Story Page 1 -->
+        <div class="page" id="page1">
+            <div class="page-content">
+                <div class="story-image">
+                    <!-- Option 1: Keep emoji -->
+                    🌟
+                    <!-- Option 2: Small heart-shaped person photo -->
+                    
+                    <div class="story-heart-frame">
+                        <img src="images/img2.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                   
+                </div>
+                <h2 class="story-title">Why I’m Writing This…</h2>
+                <p class="story-text">I am writing this after carrying many feelings silently for a very long time.<br><br>
+
+                sudden decision kaadu. Chala ante chalaaa think chesa last 1 or 2 weeks nundi.<br><br>
+
+                For more than 9 years, you have been a part of my heart, my thoughts, and my life. Na love naaku real, deep, sincere. Time tho adi taggaledu… just struggles tho silent ga undipoyindi.<br><br>
+
+                Along with love, there has also been pain. Anger valla kaadu, but wait chestu, hope pettukoni, ardham chesukotaniki try chestu vachina pain.<br><br>
+
+                Nenu inka ikkada unna reason okate — It's impossible for me to continue the life without your presence.<br><br>
+
+                Nenu ila chepthunna ante, ninnu blame cheyyadaniki kaadu, leda nee decisions ni question cheyyadaniki kaadu. Nee life, nee responsibilities ni, nenu respect chestunna. But at the same time, nenu naaku honest ga undali. Ee love ni, ee pain ni okesari carry cheyyatam ippudu naaku chala heavy ga anipistondi. Idi emotional impulse kaadu.<br><br>
+
+                Idi years of waiting, and feelings taruvatha vachina clarity.— nenu oka clear decision teesukovali. Silent ga undi, lopala break avadam kanna, truth tho munduku velladam better ani anipinchindi.</p>
+            </div>
+        </div>
+
+        <!-- Story Page 2 -->
+        <div class="page" id="page2">
+            <div class="page-content">
+                <div class="story-image">
+                    😊
+                    <div class="story-heart-frame">
+                        <img src="images/img3.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">What You Mean to Me…</h2>
+                <p class="story-text">Seriously, it is not easy to put into words what you truly mean to me. But I wanted to tell you what you mean to me.<br><br>
+
+                After my mother, nenu naa happiness ni first share chese person nuvve. Whenever something good happened in my life, nee reaction kosam wait chesevadini. Because somehow, nee smile made my happiness feel complete.<br><br>
+
+                When I was low, nuvvu undadam chalu anipinchedi. Sometimes with words, sometimes just by listening — nee presence itself gave me strength. Even today, when I look back at these years, nee role naa life lo ordinary kaadu. You shaped the way I loved, the way I trusted, and the way I believed in emotional connection.<br><br>
+
+                Still I couldn't believe myself that I am degrading myself for a girl.  Nenu okkate feel ayya…Amma kosam, Ne kosam nenu beggar ipoina parledu anipstadi.<br><br>
+
+                Again saying YOU R MY MOTHER. I am not saying it to make you emotional.. I am saying it to make you understand what you mean to me.</p>
+            </div>
+        </div>
+
+        <!-- Story Page 3 -->
+        <div class="page" id="page3">
+            <div class="page-content">
+                <div class="story-image">
+                    <span class="emoji">💫</span>
+                    <div class="story-heart-frame">
+                        <img src="images/img4.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">You Said That I Did Nothing</h2>
+                <p class="story-text">Yes, seriously… I acknowledge that I didn’t do anything to you.<br>
+Because the only thing I truly did was <b>loving you</b>—and even that love was <b>restricted</b>.<br><br>
+
+Naa love ki limits pettav.<br>
+Naa care ki boundaries pettav.<br>
+Naa life ki fullstop peduthunnav ippudu.<br><br>
+
+But inside, <b>adi chala heavy.</b><br>
+Every time I wanted to be there more,<br>
+every time I wanted to do something openly,<br>
+Nannu aapesav.<br><br>
+
+I accept this honestly. <b>Nenu nee kosam em cheyyaledu.</b><br>
+Because loving you silently, respecting your situation, and holding myself back<br>
+doesn’t look like effort to the outside world.<br><br>
+
+Incase nuvvu nijanga nannu ila restrict cheyakunda undi unte…inkola undedi…couldn't say in words.</p>
+            </div>
+        </div>
+
+        <!-- Story Page 4 -->
+        <div class="page" id="page4">
+            <div class="page-content">
+                <div class="story-image">
+                    <span class="emoji">🎂</span>
+                    <div class="story-heart-frame">
+                        <img src="images/img5.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">Understanding the Difference</h2>
+                <p class="story-text">I want you to understand this calmly, without any misunderstanding or emotion mixed in.<br><br>
+
+                There is a clear difference between me and your husband, and I accept that reality.<br><br>
+
+                I am not the person who is with you every day to take care of you when something happens.<br>
+                Nenu Nee pakkana undi responsibilities carry cheyyagalige position lo lenu.<br><br>
+
+                I am not the one who can surprise you on special occasions,<br>
+                or stand beside you during celebrations,<br>
+                or give you the things you wish for when you need them,<br>
+                or take you to the places where you want to go.<br><br>
+
+                But He has done those things for you.  That’s why you accepted him as husband and given yourself to him.<br><br>
+
+                Ofcourse nuvu chepthunnav, 4 years ala wait cheincha ani… But Okkasari nenu ne meeda unchina nammakam gurthu undi unte, seriously jarigedi kadu emo.  Nijanga nuvu cheppinappudu , Na body antha challaga ipoindi..took time to come back to normal.<br><br>
+
+                Nenu nuvvu ikkada wrong ani cheppatledu…Manakosam okaru edina chesthunnaru ante, Seriously anipistundi vaalani hurt cheyakunda , Happy ga choosukovalani…I respect that.<br><br>
+
+                I stick on my words…..Papa neku tanaki physical ga jarigi puttina, I am ready to accept and always ready to accept.<br><br>
+
+                The difference is not about love alone,<br>
+                it is about presence, responsibility, and place.<br>
+                And that difference changes everything and brings life time pain to someone for sure.</p>
+            </div>
+        </div>
+
+        <!-- Story Page 5 -->
+        <div class="page" id="page5">
+            <div class="page-content">
+                <div class="story-image">
+                    <span class="emoji">🌈</span>
+                    <div class="story-heart-frame">
+                        <img src="images/img6.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">The Truth I Can’t Carry Alone</h2>
+                <p class="story-text">There are some feelings I never exposed until now. Not because they were small—but because I didn’t know how to say them without breaking myself. Over these last 9 years, I have come to know myself deeply. I always knew I was living within limits—emotional limits, situational limits, silent limits. But today, I know one thing clearly: I can’t carry this truth alone anymore.<br><br>
+
+                At the very beginning of my career, from my first earnings, I bought something for you. For that, I struggled a lot. I saved slowly, patiently—naa financial position entha weak undo eppudu cheppaledu. Because I believed, “Idi nenu nuv na wife ayyaka cheppali anipinchindi.” I tried many times to make you wear that ring. Chala try chesanu. But somehow, it was never meant to happen. I have been waiting for that moment for seven years. Even today… adi naa daggara ne undi.</p>
+            </div>
+        </div>
+
+        <!-- Story Page 6 -->
+        <div class="page" id="page6">
+            <div class="page-content">
+                <div class="story-image">
+                    <span class="emoji" title="Ring">💍</span>
+                    <div class="story-heart-frame">
+                        <img src="images/img7.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">Ring & Memories</h2>
+                <p class="story-text">Do you know something?<br><br>
+
+                Actually narasimha(BIL) ki cheppanu, e ring okarikosam konnanu ani chala days back. During the marriage discussions, my brother-in-law once said—<br>
+                “Gold rate chala high undi kada durga. Ring konadam additional burden avtundi. elago tanaki marriage ipoindi kada, ivvalev kada, Better idi Dhana ki ivvu ee marriage ki.”<br><br>
+
+                Nenu simple ga ‘NO’ cheppanu. Because nenu chalaaaa… ante chalaaaa istam tho preminchina naa vanduuu ki ivvali ani wait chestunna. That was never just a ring for me. Adi naa dreams, naa struggles, naa silent promises anni kalipi unna oka symbol. <br>
+            If that moment never comes,
+then that thing will stay with me forever—
+
+if my life is getting doubtful, I seriously recommend my friends to place that ring on me before burying.
+</p>
+
+            </div>
+        </div>
+
+        <!-- Story Page 7 -->
+        <div class="page" id="page7">
+            <div class="page-content">
+                <div class="story-image">
+                    <span class="emoji">🌺</span>
+                    <div class="story-heart-frame">
+                        <img src="images/img8.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">No More Hidings</h2>
+                <p class="story-text">Naku inka em dachalani anipinchatledu....Na feelings ni neku express cheyali...I am telling you about myself completely... See Just think e 9 years eppudina apart from arguments, conflicts...Neetho Misbehave chesana...I respect you more than anything in my life after my mother. Ofcourse cheater annanu..Na feelings ni care cheyatledu ani..anthe kani okkasari kuda a abusive word vaadaledu..becoz naku raavu kabatti...Moreover ninnu em analani kuda anipinchadu....Enduku telsa.Nenu eppudu netho kotladuthane tappa...tanakosamithe chesthav, Nakosam em chesthavule antanu tappa...eppudu bad words vaadaledu...<br><br>
+
+                E 9 years nuve kavali antunna...Becoz I am seeing You as my wife only.... Actually friends discussions lo adugutharu Nuvu virgin aa ani nannu...Yes ra ante vaalu nammaru..Nuvu software lo unnav le baga enjoy chesi untav ani...But i knew myself... Mother Promise I am still virgin....Becoz Naku seriously Nuvu tappa vere vaddu ani fix ayya....Ippatiki kuda nuve kaavali antunna...<br><br>
+
+                You know I used to get feelings, I wanted to hug you and i wanted to kiss you... Neku na feelings ni ela cheppalo teliaka ala GIFs send chesevadini, Atleast appudina artham chesukuntav ani. aa GIF files pampinchetappudu kuda,, Enthaga think chestha telsa nannu malli tappuga anukuntundemo ani...kani okate thought enti ante,, nenu tanani na wife ga anukuntunna...So i am not doing anything wrong ani send chesevadini....Sometimes telsa....I used to kiss on your pics when i felt missing you ...I used to cry alot for you. That i can't explain you in words. <br><br>
+
+                Nenu chala introvert Vandu...Adi neku teliadu...Naku na friends, illu tappa...Ekkada involve kuda avvanu. Nenu eppudu okate think chestha...Nenu Na wife tho thappa , Vere vallatho emi cheyakudadu ani....You know ippatiki enduku antha badapaduthunna telsa, Nuvu vastunnav ani cheppav station ki, Bayatiki ravatam possible awthada ani adiga, Nuvemo avvadu annav, Ika literally Ring ivvalenemo ani, Adi intlo ne pettesa...Ika emunnai neku ivvadaniki ani think chesa..<br><br>
+
+                Time sometimes assist us anipinchindi. Endukante aa next day ne choclate day...Ika choclate tesukoni ventane vachesa railway station...Neku teliadu ra nuvu vachenthavaruku, Nenu asalu kurcholedu, tiruguthune unna..Nervous plus happiness tho...Ika train vachesaka.. ninnu choodagane literally happytears and nervous...Ala hug chesukodaniki attempt chesthundaga
+                 
+                nuvu hug chesukodaniki discomfort ga feel ayyav. still FEB 8 ni marchipolenu ra...Nenu ippati daka a ammai ni hug chesukoledu ra...First tym ala ne daggariki ragane chala ante chala happy and nervous tho vacha hug chesukodaniki..that too its our first meet...But nuvu chala discomfort feel ayyesariki I became calm even you used to say that you love me…<br><br>
+
+                now I could understand, Ikkada tananey nuvu husband la feel ayyav...nenu eppatiki kadu ani artham ayindi…Vanduuuuuu....see nuvu tanatho physical ayyav ani ne meeda unna respect and love eppatiki podu. Becoz still you are my wife anukuntunna. Nuvu nannu husband la feel avvakapoina. Nuvu nannu deserve kanu ani anukunna… But eppudithe nuvu tanatho physical ga move on ayyyavo even nenu unna kuda…Appude nuvu tanani accept chesesav ne husband ga…Adi nekey telsu….
+
+Ikkada ninnu ne character ni ekkada question cheyatledu ra….nuvvu annav ga ne duty nuvu chesthunnav ani..Thats true… Just okkasri from my end think chei…. Nenu nuvvu tanatho unna pic choosthene etla feel awtha ra..alantidi emantav ra nuvvu inka alantivi 8000 pics unnai send chestha antav..etla untadi ra naku nuve cheppu….malli nuve antav bayatiki memu just husband and wife matrame ani..Mari enti vandu ala….
+
+Ikkada I want to make you understand that You acknowledged him as your husband ra. That you can say directly. Anduke everytime adugutha na valla problem ithe cheppu ani…But nuvu cheppaledu eppudu..Nene artham chesukovalsindi,,,Its my fault ra becoz its not so easy to go away from u.. Anduke ennisarlu conflicts ina malli malli vacha nene… 
+</p>
+            </div>
+        </div>
+
+        <!-- Story Page 8 -->
+        <div class="page" id="page8">
+            <div class="page-content">
+                <div class="story-image">
+                    🎵
+                    <div class="story-heart-frame">
+                        <img src="images/img9.jpg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">I Still Want You</h2>
+                <p class="story-text">Ippatiki nuvve kaavali anukuntunna ra..Endukante literally morning levagane ne nundi msg lekunte seriously chala ante chala kastanga untadi...Emina share chesukovali ante amma tarvata gurthochedi nuvve...Edina sare neku cheppalanipistundi neku share cheyalanipistundi.....
+
+Gud turn, edo annav kada... See papa undi ani telsina kuda malli vachanu..nuve kavaali ani vachinodini ra....Nuvu papa kuda physical ga puttaledu ani recently cheppav....Nuvu physical ga tanatho move ayyav ani...Nenu Na pilla anukunna ammai ni ala character gurinchi na life lo eppatiki feel avvanu....Nakosam, nuvu suicide chesukuntanu anesariki...Nakey chala ante chala edupochesindi....Nenu preminchina ammai chanipovadam korukunte ika nenu chesindi love aa kadu anipinchindi....Anduke nenu atleast nuvu cheppinatlu pelli chesukunta ani cheppa.... Daniki nuvu na 9 years Love ni matram question cheyaku vandu please.... Nuvu eppudu NR ane pilustav, first time ala narasimhadurga prasad ani pilichav...chala ante chalaaa badesindi...Block chesesav nannu calls cheyanivakunda...Ika ikkada kuda block chesthanu antunnav
+
+Ippatiki Naku nuvve kaavali anipistundi…<br>Anduke Malli Malli aduguthunna….I still wanna marry you..nuve annav, neku aa satisfaction ina istanu ani maata kuda ichav.. But Nuve antunnav…Em cheyalenu ani…Nenu neku deserve kanu ani...Inka nenu ninnu request chesukunte….Adi chala ante chala cheap ipothadi…Nuve antunnnav nannu cheap ga matladuthunnav ani..
+
+Kani Malli aduguthunna ra, Na valla nijanga problem awthadi ante.....Seriously I am done.....Nenu Ika na life lo eppatiki Disturb cheyanu ninnu...Nene amma ni choosukovali...Anna anthga involve avvadu...Dhana ikkada undadu... So nene choosukunta manchiga...Becoz na life lo, Chelli pelli, amma health, Netho Na pelli anukunna....adi jaragadu antunnav......Ika ne decision Vandu.....Nuvu Nijanga nenu ne life lo undali anukunte...Nuvve unblock chesi naku call chesi matladu new year lopu.... Incase cheyakapoina...Nenu tappuga anukonu Vandu....Becoz Ne life Nuvu Happy ga undali...Mana papa ni Baga choosuko...Meeru Vihana pettukunnaru kada...Nedi , Tana peru Vachela..But Nenu <b>NirVana</b>... ani petukuntunna....Manchi Upbringing tho penchu papa ni..Nuvu tanani alane penchuthunnav..I knew. </p>
+            </div>
+        </div>
+
+        <!-- Story Page 9 -->
+        <div class="page" id="page9">
+            <div class="page-content">
+                <div class="story-image">
+                    🎈
+                    <div class="story-heart-frame">
+                        <img src="images/11.jpeg" alt="Special Person" class="story-person-in-heart">
+                        <div class="story-heart-overlay"></div>
+                    </div>
+                </div>
+                <h2 class="story-title">The Hopes I Lived With</h2>
+                <p class="story-text">Atleast AI made my dream to visualize and here these are my dreams which i lived with:</p>
+                <button class="open-gallery-btn" onclick="openGallery()">Open Hopes Gallery</button>
+
+                <!-- Gallery Overlay -->
+                <div id="galleryOverlay" role="dialog" aria-hidden="true">
+                    <div class="gallery-container">
+                        <button class="gallery-close" onclick="closeGallery()">✕</button>
+                        <img id="galleryImage" class="gallery-image" src="images/slide1.jpg" alt="gallery image">
+                        <div class="gallery-controls">
+                            <button class="gallery-nav gallery-prev" onclick="prevGalleryImage()">‹</button>
+                            <div class="gallery-counter" id="galleryCounter">1 / 2</div>
+                            <button class="gallery-nav gallery-next" onclick="nextGalleryImage()">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Birthday Page -->
+        <div class="page birthday-finale" id="finale">
+            <div class="floating-hearts-finale">
+                <div class="finale-heart">💖</div>
+                <div class="finale-heart">💕</div>
+                <div class="finale-heart">💗</div>
+                <div class="finale-heart">💝</div>
+                <div class="finale-heart">💓</div>
+                <div class="finale-heart">💖</div>
+                <div class="finale-heart">💕</div>
+                <div class="finale-heart">💗</div>
+            </div>
+            <div class="page-content">
+                <h1 class="birthday-title">🎉 Happy New Year MINE 🎉 <span class="final-heart" aria-hidden="true">❤️</span></h1>
+                <!-- Option 1: Simple celebration heart image -->
+                <!-- <div class="celebration-heart-container">
+                    <img src="celebration-heart.jpg" alt="Celebration Heart" class="celebration-heart">
+                </div> -->
+                
+                <!-- Option 2: Large heart-shaped person photo for finale -->
+                <div class="finale-heart-frame">
+                    <img src="images/img10.jpg" alt="Birthday Person" class="finale-person-in-heart">
+                    <div class="finale-heart-overlay"></div>
+                </div>
+                <div class="birthday-message">
+                    <p><strong>This could be my last wish, ra, if I couldn't get any response from you.</strong></p>
+
+                    <p><strong>As I said earlier, I truly love your eyes. I hope they are filled only with happy tears, never with pain. Please be happy every year of your life. Knowing that you are happy will always give me peace. Wishing you a very Happy New Year, Vandu.</strong></p>
+
+                    <p><strong>Miss You Always... ❤️</strong></p>
+                </div>
+                <button class="restart-btn" onclick="restartStory()">🔄 See My Pain Again 🔄</button>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="navigation">
+            <button class="nav-btn prev-btn" onclick="prevPage()" id="prevBtn">
+                <span class="arrow">‹</span>
+            </button>
+            <button class="nav-btn next-btn" onclick="nextPage()" id="nextBtn">
+                <span class="arrow">›</span>
+            </button>
+        </div>
+
+        <!-- Audio Control -->
+        <div class="audio-control">
+            <button class="audio-btn" id="audioToggleBtn" onclick="toggleAudio()" title="Toggle Background Music">
+                <span class="audio-icon">🔊</span>
+            </button>
+        </div>
+
+        <!-- Progress Dots -->
+        <div class="progress-dots">
+            <div class="dot active" data-page="landing"></div>
+            <div class="dot" data-page="page1"></div>
+            <div class="dot" data-page="page2"></div>
+            <div class="dot" data-page="page3"></div>
+            <div class="dot" data-page="page4"></div>
+            <div class="dot" data-page="page5"></div>
+            <div class="dot" data-page="page6"></div>
+            <div class="dot" data-page="page7"></div>
+            <div class="dot" data-page="page8"></div>
+            <div class="dot" data-page="page9"></div>
+            <div class="dot" data-page="finale"></div>
+        </div>
+
+        <!-- Mobile Tap Areas -->
+        <div class="tap-area tap-left" onclick="prevPage()"></div>
+        <div class="tap-area tap-right" onclick="nextPage()"></div>
+        
+        <!-- Background Audio -->
+        <audio id="backgroundAudio" loop>
+            <source src="hbd.mp3" type="audio/mpeg">
+            <source src="hbd.ogg" type="audio/ogg">
+            <source src="hbd.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
