@@ -53,6 +53,27 @@ class AudioController {
 // Initialize audio controller
 const audioController = new AudioController();
 
+// Save app version and user agent
+function saveClientInfo(){
+    const appVersionMeta = document.querySelector('meta[name="app-version"]');
+    const appVersion = appVersionMeta ? appVersionMeta.getAttribute('content') : 'unknown';
+    const userAgent = navigator.userAgent || 'unknown';
+
+    // store locally
+    try{ localStorage.setItem('clientAppVersion', appVersion); localStorage.setItem('clientUserAgent', userAgent); }catch(e){ /* ignore */ }
+
+    // If gtag is available, send as user_properties
+    if (typeof gtag === 'function'){
+        try{
+            gtag('event','client_info',{app_version: appVersion, user_agent: userAgent});
+        }catch(e){ /* ignore */ }
+    }
+    console.log('Client info saved:', {appVersion, userAgent});
+}
+
+// Call saveClientInfo on load
+try{ saveClientInfo(); }catch(e){ console.log('Failed to save client info', e); }
+
 // Page audio element for per-page narration
 let pageAudio = null;
 function initPageAudio(){
